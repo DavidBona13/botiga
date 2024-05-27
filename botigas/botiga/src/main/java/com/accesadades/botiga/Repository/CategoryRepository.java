@@ -16,5 +16,5 @@ public interface CategoryRepository extends CrudRepository<Category, Long>{
     Category findByName(@NonNull String name);
 
     //String saveCategory(Category category);
-    String deleteCategoryById(Long id);
+    String deleteCategoryByName(String name);
 }

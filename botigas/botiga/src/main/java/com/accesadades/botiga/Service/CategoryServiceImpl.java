@@ -30,8 +30,8 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public String deleteCategory(Long id) {
-        categoryRepository.deleteById(id);
+    public String deleteCategory(String name) {
+        categoryRepository.deleteCategoryByName(name);
         return "Eliminat correctament!";
     }
     

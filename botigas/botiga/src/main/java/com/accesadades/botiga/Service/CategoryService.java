@@ -9,5 +9,5 @@ public interface CategoryService {
     Category findCategoryByNames(String name);
 
     String saveCat(Category category);
-    String deleteCategory(Long id);
+    String deleteCategory(String name);
 }

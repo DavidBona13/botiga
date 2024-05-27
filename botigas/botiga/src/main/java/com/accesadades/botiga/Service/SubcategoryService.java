@@ -9,5 +9,5 @@ public interface SubcategoryService {
     Subcategory findSubcategoryByNames(String name);
 
     String saveSub(Subcategory subcategory);
-    String deleteSubcategory(Long id);
+    String deleteSubcategory(String name);
 }

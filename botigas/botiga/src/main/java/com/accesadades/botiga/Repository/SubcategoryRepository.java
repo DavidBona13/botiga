@@ -14,5 +14,5 @@ public interface SubcategoryRepository extends CrudRepository<Subcategory, Long>
     Set<Subcategory> findAll();
     Subcategory findByName(String name);
 
-    String deleteSubcategoryById(Long id);    
+    String deleteSubcategoryByName(String name);    
 }
