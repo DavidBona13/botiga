@@ -15,6 +15,7 @@ import com.accesadades.botiga.Service.CategoryService;
 import com.accesadades.botiga.Service.ProductService;
 import com.accesadades.botiga.Service.SubcategoryService;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 @Controller
@@ -22,12 +23,12 @@ public class WebController {
  
     @Autowired
     private ProductService productService;
-
+/* 
     @Autowired
     private SubcategoryService subcategoryService;
 
     @Autowired
-    private CategoryService categoryService;
+    private CategoryService categoryService;*/
  
     @RequestMapping(value = "/")
     public String index(Model model) {
@@ -50,7 +51,8 @@ public class WebController {
         return "search"; // Referencia a search.html en el directorio templates
     }
 
-    @RequestMapping(value = {"/desar", "/products"}, method = (RequestMethod.POST))
+
+    @RequestMapping(value = {"/productes", "/desar"}, method = (RequestMethod.POST))
     public String insertProduct(@RequestParam("nom") String nom,
                                 @RequestParam("descripcio") String descripcio,
                                 @RequestParam("fabricant") String fabricant,
@@ -60,24 +62,12 @@ public class WebController {
                                 @RequestParam("categoria") String categoria,
                                 Model model) {
         
-        Subcategory sub = subcategoryService.findSubcategoryByNames(subcategoria);
-        Category cat = categoryService.findCategoryByNames(categoria);
-        if(cat == null) {
-            Category cat2 = new Category(categoria);
-            categoryService.saveCat(cat2);
-        }
-        if(sub == null){
-            Subcategory sub2 = new Subcategory(subcategoria);
-            subcategoryService.saveSub(sub2);
-        }
-        Product product = new Product(nom, descripcio, fabricant, preu, unitats, sub.getSubcategory_id());
-        Subcategory subcategory = new Subcategory(subcategoria);
-        return "";
+        return "desar";
     }
 
-    @RequestMapping(value = {"/eliminar", "/id"}, method = (RequestMethod.DELETE))
-    public String deleteProduct(@RequestParam(value = "id", required = false) Long id, Model model){
-        String message = productService.deleteProduct(id);
+    @RequestMapping(value = {"/eliminar", "/name"}, method = (RequestMethod.DELETE))
+    public String deleteProduct(@RequestParam(value = "name", required = false) String name, Model model){
+        String message = productService.deleteProduct(name);
         model.addAttribute("message", message);
         return "eliminar"; // Referencia a eliminar.html en el directorio templates
     }

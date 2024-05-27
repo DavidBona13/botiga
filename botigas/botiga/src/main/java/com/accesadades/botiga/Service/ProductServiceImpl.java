@@ -19,7 +19,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Set<Product> findAllProducts(String subcategory) {
-        return null;
+        return productRepository.findAll();
     }
 
     @Override
@@ -39,8 +39,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public String deleteProduct(Long id) {
-        productRepository.deleteById(id);
+    public String deleteProduct(String name) {
+        productRepository.deleteProductByName(name);
         return "producte eliminat correctament!";
     }
 }

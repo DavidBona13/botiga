@@ -31,8 +31,8 @@ public class SubcategoryServiceImpl implements SubcategoryService{
     }
 
     @Override
-    public String deleteSubcategory(Long id) {
-        subcategoryRepository.deleteById(id);
+    public String deleteSubcategory(String name) {
+        subcategoryRepository.deleteSubcategoryByName(name);
         return "Eliminat correctament!";
     }
     
