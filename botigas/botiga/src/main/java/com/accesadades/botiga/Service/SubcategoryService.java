@@ -5,7 +5,7 @@ import java.util.Set;
 import com.accesadades.botiga.Model.Subcategory;
 
 public interface SubcategoryService {
-    Set<Subcategory> findAllSubcateogy();
+    Set<Subcategory> findAllSubcategory();
     Subcategory findSubcategoryByNames(String name);
 
     String saveSub(Subcategory subcategory);

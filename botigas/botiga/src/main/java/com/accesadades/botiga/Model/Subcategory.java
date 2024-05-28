@@ -39,7 +39,7 @@ public class Subcategory implements Serializable {
 
     @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name="category_id")
-    private Category category;  
+    private Category category_id;  
 
 
 }

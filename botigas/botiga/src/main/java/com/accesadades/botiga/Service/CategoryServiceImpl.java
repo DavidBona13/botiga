@@ -3,10 +3,12 @@ package com.accesadades.botiga.Service;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.accesadades.botiga.Model.Category;
 import com.accesadades.botiga.Repository.CategoryRepository;
 
+@Service
 public class CategoryServiceImpl implements CategoryService{
 
 
