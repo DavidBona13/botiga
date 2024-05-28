@@ -15,7 +15,6 @@ import com.accesadades.botiga.Service.CategoryService;
 import com.accesadades.botiga.Service.ProductService;
 import com.accesadades.botiga.Service.SubcategoryService;
 
-import java.time.LocalDate;
 import java.util.Set;
 
 @Controller
@@ -23,12 +22,12 @@ public class WebController {
  
     @Autowired
     private ProductService productService;
-/* 
+
     @Autowired
     private SubcategoryService subcategoryService;
 
     @Autowired
-    private CategoryService categoryService;*/
+    private CategoryService categoryService;
  
     @RequestMapping(value = "/")
     public String index(Model model) {
@@ -52,16 +51,13 @@ public class WebController {
     }
 
 
-    @RequestMapping(value = {"/productes", "/desar"}, method = (RequestMethod.POST))
-    public String insertProduct(@RequestParam("nom") String nom,
-                                @RequestParam("descripcio") String descripcio,
-                                @RequestParam("fabricant") String fabricant,
-                                @RequestParam("preu") double preu,
-                                @RequestParam("Unitats") int unitats,
-                                @RequestParam("subcategoria") String subcategoria,
-                                @RequestParam("categoria") String categoria,
-                                Model model) {
-        
+    @RequestMapping(value = "/desar", method = (RequestMethod.GET))
+    public String preProduct(Model model) {
+        Set<Subcategory> subcategories = subcategoryService.findAllSubcategory();
+        Set<Category> categories = categoryService.findAllCategory();
+        model.addAttribute("categories", categories);
+        model.addAttribute("subcategories", subcategories);
+        model.addAttribute("product", new Product());
         return "desar";
     }
 
