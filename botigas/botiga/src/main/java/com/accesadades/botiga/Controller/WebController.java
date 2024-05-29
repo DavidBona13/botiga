@@ -3,6 +3,7 @@ package com.accesadades.botiga.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -54,17 +55,24 @@ public class WebController {
     @RequestMapping(value = "/desar", method = (RequestMethod.GET))
     public String preProduct(Model model) {
         Set<Subcategory> subcategories = subcategoryService.findAllSubcategory();
-        Set<Category> categories = categoryService.findAllCategory();
-        model.addAttribute("categories", categories);
+        //Set<Category> categories = categoryService.findAllCategory();
+        //model.addAttribute("categories", categories);
         model.addAttribute("subcategories", subcategories);
         model.addAttribute("product", new Product());
         return "desar";
     }
 
-    @RequestMapping(value = {"/eliminar", "/name"}, method = (RequestMethod.DELETE))
-    public String deleteProduct(@RequestParam(value = "name", required = false) String name, Model model){
-        String message = productService.deleteProduct(name);
-        model.addAttribute("message", message);
-        return "eliminar"; // Referencia a eliminar.html en el directorio templates
+    @RequestMapping (value = "/guardarProducte", method = (RequestMethod.POST))
+    public String guardarProduct(Model model, @ModelAttribute("product") Product product) {
+        if(product == null){
+            return "index";
+        }
+        productService.saveProd(product);
+        return "desar";
+    }
+
+    @RequestMapping(value = "/eliminar", method = (RequestMethod.DELETE))
+    public void deleteProduct(@RequestParam(value = "product_id", required = false) Long product_id, Model model){
+        productService.deleteProduct(product_id);
     }
 }

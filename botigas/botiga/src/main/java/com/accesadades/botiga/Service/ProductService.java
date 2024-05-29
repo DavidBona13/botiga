@@ -9,6 +9,6 @@ public interface ProductService {
     Product findProductsByName(String name);
     Set<Product> findAllProducts(String subcategory);
     void increasePrice(Product product);
-    String saveProd(Product product);
-    String deleteProduct(String name);
+    Product saveProd(Product product);
+    void deleteProduct(Long product_id);
 }

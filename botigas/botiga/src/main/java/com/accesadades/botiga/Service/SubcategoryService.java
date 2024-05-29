@@ -8,6 +8,6 @@ public interface SubcategoryService {
     Set<Subcategory> findAllSubcategory();
     Subcategory findSubcategoryByNames(String name);
 
-    String saveSub(Subcategory subcategory);
-    String deleteSubcategory(String name);
+    Subcategory saveSub(Subcategory subcategory);
+    void deleteSubcategory(Long subcategory_id);
 }

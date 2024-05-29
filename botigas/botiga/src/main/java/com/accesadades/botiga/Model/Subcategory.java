@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,7 +40,7 @@ public class Subcategory implements Serializable {
 
     @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name="category_id")
-    private Category category_id;  
+    private Category category;  
 
 
 }
