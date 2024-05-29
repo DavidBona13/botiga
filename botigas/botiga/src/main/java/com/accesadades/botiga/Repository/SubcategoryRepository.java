@@ -13,7 +13,10 @@ public interface SubcategoryRepository extends CrudRepository<Subcategory, Long>
     @NonNull
     Set<Subcategory> findAll();
     Subcategory findByName(String name);
-    //Subcategory save(Subcategory subcategory);
+    //Mètode per guardar una categoria, amb l'annotació @SuppressWarnings pots evitar possibles excepcions en operacions on el compilador pogués detectar que estàs intentant accedir a una referència nul·la.
+    //Retorna un objecte subcategoria.
+    @SuppressWarnings({ "unchecked", "null" })
+    Subcategory save(Subcategory subcategory);
     @SuppressWarnings("null")
     void deleteById(Long subcategory_id);    
 }

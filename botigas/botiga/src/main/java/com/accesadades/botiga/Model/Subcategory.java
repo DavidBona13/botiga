@@ -37,6 +37,7 @@ public class Subcategory implements Serializable {
     @Column(name = "updated_at")
     private LocalDateTime updateDate;
 
+    //Una categoria pot tenir moltes subcategories assignades.
     @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name="category_id")
     private Category category;  

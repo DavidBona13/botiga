@@ -8,13 +8,15 @@ import org.springframework.stereotype.Service;
 import com.accesadades.botiga.Model.Category;
 import com.accesadades.botiga.Repository.CategoryRepository;
 
+//Classe amb l'annotació service i que implementa la interfície CategoryService.
 @Service
 public class CategoryServiceImpl implements CategoryService{
 
-
+    //Injecció de dependències, permet injectar beans colaboratius.
     @Autowired
     private CategoryRepository categoryRepository;
     
+    //Mètodes sobreescrits i amb la lògica de negoci.
     @Override
     public Set<Category> findAllCategory() {
         return categoryRepository.findAll();

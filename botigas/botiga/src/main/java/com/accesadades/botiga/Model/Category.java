@@ -3,9 +3,6 @@ package com.accesadades.botiga.Model;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
 //import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,13 +16,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//Anotacions de lombok per estalviar-te escriure getters, setter i constructors.
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+//Especifíca que la classe Categoria es una entitat.
 @Entity
+//El nom que tindra la taula dins la base de dades.
 @Table ( name = "category")
 public class Category implements Serializable{
 
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long category_id;
@@ -34,11 +35,9 @@ public class Category implements Serializable{
     private String name;
 
     @Column(name = "creation_at")
-    @CreationTimestamp
     private LocalDateTime creationDate;
 
     @Column(name = "updated_at")
-    @UpdateTimestamp
     private LocalDateTime updateDate;
 /*
     @OneToMany(cascade=CascadeType.PERSIST)

@@ -44,6 +44,7 @@ public class Product implements Serializable {
     @Column
     private String subcategory;
 
+    //Relació ManyToOne, una subcategoria pot tenir molts productes, pero els productes només una subcategoria.
     @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name="subcategory_id")
     private Subcategory subcategoryObj;     

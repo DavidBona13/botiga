@@ -14,6 +14,9 @@ public interface CategoryRepository extends CrudRepository<Category, Long>{
     @NonNull
     Set<Category> findAll();
     Category findByName(@NonNull String name);
+
+    //Mètode per guardar una categoria, amb l'annotació @SuppressWarnings pots evitar possibles excepcions en operacions on el compilador pogués detectar que estàs intentant accedir a una referència nul·la.
+    //Retorna un objecte categoria.
     @SuppressWarnings({ "null", "unchecked" })
     Category save(Category category);
     //String saveCategory(Category category);
