@@ -4,15 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.accesadades.botiga.Model.Category;
 import com.accesadades.botiga.Model.Product;
 import com.accesadades.botiga.Model.Subcategory;
-import com.accesadades.botiga.Service.CategoryService;
 import com.accesadades.botiga.Service.ProductService;
 import com.accesadades.botiga.Service.SubcategoryService;
 
@@ -26,9 +23,6 @@ public class WebController {
 
     @Autowired
     private SubcategoryService subcategoryService;
-
-    @Autowired
-    private CategoryService categoryService;
  
     @RequestMapping(value = "/")
     public String index(Model model) {
@@ -68,7 +62,7 @@ public class WebController {
             return "index";
         }
         productService.saveProd(product);
-        return "desar";
+        return "inserida";
     }
 
     @RequestMapping(value = "/eliminar", method = (RequestMethod.DELETE))
