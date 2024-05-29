@@ -15,6 +15,8 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     Set<Product> findAll();
     Product findByName(String name);
     Set<Product> findByNameAndPrice(String name, float price);
+    //Mètode per guardar una categoria, amb l'annotació @SuppressWarnings pots evitar possibles excepcions en operacions on el compilador pogués detectar que estàs intentant accedir a una referència nul·la.
+    //Retorna un objecte producte.
     @SuppressWarnings({ "null", "unchecked" })
     Product save(Product product);
     @SuppressWarnings("null")

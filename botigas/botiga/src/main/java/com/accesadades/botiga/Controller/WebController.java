@@ -45,7 +45,7 @@ public class WebController {
         return "search"; // Referencia a search.html en el directorio templates
     }
 
-
+    //Mètode get on li pasem totes les subcategories i un objecte buit (que s'ha d'omplir amb els camps del formulari) al arxiu html desar (a través del return) mitjançant Model.
     @RequestMapping(value = "/desar", method = (RequestMethod.GET))
     public String preProduct(Model model) {
         Set<Subcategory> subcategories = subcategoryService.findAllSubcategory();
@@ -56,6 +56,7 @@ public class WebController {
         return "desar";
     }
 
+    //Mètode post que agafa les dades del formulari un cop es clica el botó, si la insercció és correcte t'enviarà a la pàgina 'inserida' sinò, tornes a l'index.
     @RequestMapping (value = "/guardarProducte", method = (RequestMethod.POST))
     public String guardarProduct(Model model, @ModelAttribute("product") Product product) {
         if(product == null){
@@ -65,6 +66,7 @@ public class WebController {
         return "inserida";
     }
 
+    //Mètode delete que no està implementat ni és funcional.
     @RequestMapping(value = "/eliminar", method = (RequestMethod.DELETE))
     public void deleteProduct(@RequestParam(value = "product_id", required = false) Long product_id, Model model){
         productService.deleteProduct(product_id);

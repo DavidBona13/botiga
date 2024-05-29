@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.accesadades.botiga.Model.Subcategory;
 import com.accesadades.botiga.Repository.SubcategoryRepository;
 
+//Classe amb l'annotació service i que implementa la interfície SubcategoryService.
 @Service
 public class SubcategoryServiceImpl implements SubcategoryService{
 

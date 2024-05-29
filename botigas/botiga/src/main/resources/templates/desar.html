@@ -60,6 +60,7 @@
 <body>
     <div class="container">
         <h1>Inserir Nou Producte</h1>
+        <!-- el th:action crida l'URL, amb el th:object rebem/accedim al objecte buit que li pasem pel mètode, y amb el th:method dictem el tipus de mapping que utilitzem, com amb el botó fem un "insert" necesitem posar-ho en post-->
         <form action="#" th:action="@{/guardarProducte}" th:object="${product}" th:method="post">
             <div>
                 <label for="nom">Nom del Producte:</label>
@@ -71,6 +72,7 @@
             </div>
             <div>
                 <label for="fabricant">Fabricant:</label>
+                <!--Amb el th:field pasem el camp de l'objecte product-->
                 <input type="text" id="fabricant" name="fabricant" th:field="*{company}" required>
             </div>
             <div>
@@ -83,8 +85,9 @@
             </div>
             <div>
                 <label for="subcategoria">Subcategoria:</label>
-                <select id="subcategoria" name="subcategoria" th:field="*{subcategory}" required>
-                    <option th:each="subcategory : ${subcategories}" th:value="${subcategory}" th:text="${subcategory.name}"></option>
+                <select id="subcategoria" name="subcategoria" th:field="*{subcategoryObj}" required>
+                    <!--MOLT IMPORTANT que el th:value sigui el subcategory_id, sino, pot donar errors, i fer un inser de manera incorrecta-->
+                    <option th:each="subcategory : ${subcategories}" th:value="${subcategory.subcategory_id}" th:text="${subcategory.name}"></option>
                 </select>
             </div>
            <!-- <div>

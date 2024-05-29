@@ -6,6 +6,7 @@ import java.util.Set;
 import com.accesadades.botiga.Model.Product;
 import com.accesadades.botiga.Repository.ProductRepository;
 
+//Classe amb l'annotació service i que implementa la interfície ProductService.
 @Service
 public class ProductServiceImpl implements ProductService {
 
