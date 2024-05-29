@@ -8,6 +8,6 @@ public interface CategoryService {
     Set<Category> findAllCategory();
     Category findCategoryByNames(String name);
 
-    String saveCat(Category category);
-    String deleteCategory(String name);
+    Category saveCat(Category category);
+    void deleteCategory(Long category_id);
 }

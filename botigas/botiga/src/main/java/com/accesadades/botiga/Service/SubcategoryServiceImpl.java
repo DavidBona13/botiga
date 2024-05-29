@@ -25,15 +25,14 @@ public class SubcategoryServiceImpl implements SubcategoryService{
     }
 
     @Override
-    public String saveSub(Subcategory subcategory) {
+    public Subcategory saveSub(Subcategory subcategory) {
         subcategoryRepository.save(subcategory);
-        return "Afegit correctament!";
+        return subcategory;
     }
 
     @Override
-    public String deleteSubcategory(String name) {
-        subcategoryRepository.deleteSubcategoryByName(name);
-        return "Eliminat correctament!";
+    public void deleteSubcategory(Long subcategory_id) {
+        subcategoryRepository.deleteById(subcategory_id);
     }
     
 }

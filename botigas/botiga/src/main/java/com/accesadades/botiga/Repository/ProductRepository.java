@@ -15,6 +15,8 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     Set<Product> findAll();
     Product findByName(String name);
     Set<Product> findByNameAndPrice(String name, float price);
-    //String saveProduct(Product product);
-    String deleteProductByName(String name);
+    @SuppressWarnings({ "null", "unchecked" })
+    Product save(Product product);
+    @SuppressWarnings("null")
+    void deleteById(Long product_id);
 }

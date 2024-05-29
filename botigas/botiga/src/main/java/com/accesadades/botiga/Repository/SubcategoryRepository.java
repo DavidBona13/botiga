@@ -13,6 +13,7 @@ public interface SubcategoryRepository extends CrudRepository<Subcategory, Long>
     @NonNull
     Set<Subcategory> findAll();
     Subcategory findByName(String name);
-
-    String deleteSubcategoryByName(String name);    
+    //Subcategory save(Subcategory subcategory);
+    @SuppressWarnings("null")
+    void deleteById(Long subcategory_id);    
 }

@@ -26,15 +26,14 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
-    public String saveCat(Category category) {
+    public Category saveCat(Category category) {
         categoryRepository.save(category);
-        return "Afegit correctament";
+        return category;
     }
 
     @Override
-    public String deleteCategory(String name) {
-        categoryRepository.deleteCategoryByName(name);
-        return "Eliminat correctament!";
+    public void deleteCategory(Long category_id) {
+        categoryRepository.deleteById(category_id);
     }
     
     
